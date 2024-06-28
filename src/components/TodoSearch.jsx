@@ -1,5 +1,5 @@
 const TodoSearch = () => {
-  return <input placeholder="Buy milk" />;
+  return <input placeholder="Search a Task" className="input-filter" />;
 };
 
 export default TodoSearch;

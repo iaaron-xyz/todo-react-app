@@ -2,7 +2,9 @@ import TodoItem from "./components/TodoItem";
 import TodoCounter from "./components/TodoCounter";
 import TodoSearch from "./components/TodoSearch";
 import TodoList from "./components/TodoList";
-import BtnCreateTodoItem from "./components/BtnCreateTodoItem";
+import CreateNewItem from "./components/CreateNewItem";
+
+import "./fonts.css";
 
 const defaultTodos = [
   { text: "Buy eggs", completed: true },
@@ -14,10 +16,11 @@ const defaultTodos = [
 function App() {
   return (
     <div className="App">
-      <h1>ToDo React App</h1>
+      <h1 className="title-app">TodoApp</h1>
 
-      <TodoCounter completed={3} total={6} />
       <TodoSearch />
+      <TodoCounter completed={3} total={6} />
+      <CreateNewItem />
 
       <TodoList>
         {defaultTodos.map((item) => {
@@ -30,8 +33,6 @@ function App() {
           );
         })}
       </TodoList>
-
-      <BtnCreateTodoItem />
     </div>
   );
 }

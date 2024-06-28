@@ -1,8 +1,14 @@
 :root {
   --background: rgb(22, 22, 22);
+  --background-secondary: rgb(36, 36, 36);
   --color-main: rgb(231, 231, 231);
+  --color-secondary: rgb(255, 255, 255);
+  --color-accent: rgb(255, 100, 44);
+  --color-placeholder: rgb(173, 173, 173);
   --width-list: 700px;
   --width-items: 600px;
+  --border-radius-circle: 100%;
+  --border-radius-detail: 20px;
 }
 
 * {
@@ -13,6 +19,7 @@
 body {
   background-color: var(--background);
   color: var(--color-main);
+  font-family: "Poppins";
 }
 
 #root {
@@ -33,10 +40,24 @@ ul {
   padding: 0;
 }
 
-li,
-p {
+h2,
+h3,
+h4,
+p,
+li {
   margin: 0;
   padding: 0;
+}
+
+.title-app {
+  font-family: "PoppinsBold";
+  font-size: 3rem;
+}
+.input-filter {
+  font-size: 1.5rem;
+  text-align: center;
+  width: var(--width-items);
+  padding: 30px 10px;
 }
 
 .todo-list {
@@ -49,12 +70,65 @@ p {
   margin-bottom: 10px;
   padding: 10px;
   width: var(--width-items);
-  font-size: 2rem;
-  background-color: rgb(36, 36, 36);
-  border: solid 1px rgb(37, 37, 37);
-  border-radius: 10px;
+  font-size: 1.4rem;
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius-detail);
 }
 
 .list-item-text {
   padding: 0.5rem;
+}
+
+.todo-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 40px 0;
+  padding: 30px 0;
+  min-width: var(--width-items);
+  border: white solid 1px;
+  border-radius: var(--border-radius-detail);
+}
+
+.todo-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  min-width: 100px;
+  background-color: var(--color-accent);
+  color: var(--background);
+  border-radius: var(--border-radius-circle);
+  font-family: "PoppinsBold";
+  font-size: 3rem;
+}
+
+input {
+  background-color: var(--background-secondary);
+  color: var(--color-secondary);
+  border: none;
+  border-radius: var(--border-radius-detail);
+}
+input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.add-new-item > input {
+  margin-right: 20px;
+}
+
+.add-new-item > input,
+.add-item-button {
+  min-height: 70px;
+  padding: 0 20px;
+  font-size: 1.5rem;
+}
+
+.add-item-button {
+  min-width: 70px;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--border-radius-circle);
+  text-align: center;
+  cursor: pointer;
 }
