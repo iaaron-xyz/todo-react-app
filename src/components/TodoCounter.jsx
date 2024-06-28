@@ -1,5 +1,9 @@
-const TodoCounter = () => {
-  return <h1>Tasks: 3 of 5 completed</h1>;
+const TodoCounter = ({ total, completed }) => {
+  return (
+    <h2>
+      Tasks: {completed} of {total} completed
+    </h2>
+  );
 };
 
 export default TodoCounter;

@@ -1,3 +1,60 @@
+:root {
+  --background: rgb(22, 22, 22);
+  --color-main: rgb(231, 231, 231);
+  --width-list: 700px;
+  --width-items: 600px;
+}
+
 * {
   box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color-main);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--width-list);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.todo-list {
+  margin: 30px 10px 10px 10px;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: var(--width-items);
+  font-size: 2rem;
+  background-color: rgb(36, 36, 36);
+  border: solid 1px rgb(37, 37, 37);
+  border-radius: 10px;
+}
+
+.list-item-text {
+  padding: 0.5rem;
 }

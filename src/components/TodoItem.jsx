@@ -1,8 +1,8 @@
-const TodoItem = () => {
+const TodoItem = ({ text, completed }) => {
   return (
-    <li>
-      <span>c</span>
-      <p>Todo item text</p>
+    <li className="list-item">
+      <span>{completed ? "✔" : "-"}</span>
+      <p className="list-item-text">{text}</p>
       <span>x</span>
     </li>
   );

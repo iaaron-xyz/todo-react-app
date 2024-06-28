@@ -1,5 +1,5 @@
-const TodoList = (props) => {
-  return <ul>{props.children}</ul>;
+const TodoList = ({ children }) => {
+  return <ul className="todo-list">{children}</ul>;
 };
 
 export default TodoList;
