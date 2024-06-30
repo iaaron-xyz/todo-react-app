@@ -1,8 +1,10 @@
-const TodoSearch = () => {
+const TodoSearch = ({ searchValue, setSearchValue }) => {
+  console.log(`search value: ${searchValue}`);
   return (
     <input
       placeholder="Search a Task"
-      onChange={(event) => console.log(event.target.value)}
+      value={searchValue}
+      onChange={(event) => setSearchValue(event.target.value)}
       className="input-filter"
     />
   );
