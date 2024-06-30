@@ -5,6 +5,7 @@
   --color-secondary: rgb(255, 255, 255);
   --color-accent: rgb(255, 100, 44);
   --color-placeholder: rgb(173, 173, 173);
+  --color-checked: rgb(112, 112, 112);
   --width-list: 700px;
   --width-items: 600px;
   --border-radius-circle: 100%;
@@ -77,6 +78,11 @@ li {
 
 .list-item-text {
   padding: 0.5rem;
+}
+
+.list-item-text-checked {
+  color: var(--color-checked);
+  text-decoration: line-through;
 }
 
 .todo-counter {

@@ -1,37 +1,44 @@
-const TodoItem = ({ text, completed }) => {
-  let iconCheck = "/circle.svg";
+const TodoItem = ({ text, completed, id, onComplete }) => {
+  let iconCheck = "";
   if (completed) {
     iconCheck = "/circle-check.svg";
+  } else {
+    iconCheck = "/circle.svg";
   }
 
   return (
-    <li className="list-item">
+    <li className="list-item" id={id}>
       {/* Check icon */}
       <img
         src={iconCheck}
         alt=""
         height={30}
-        onClick={() => console.log("Check the task")}
+        onClick={onComplete}
+        className="list-item-check"
       />
 
       {/* Todo text */}
-      <p className="list-item-text">{text}</p>
+      <p className={`list-item-text  ${completed && "list-item-text-checked"}`}>
+        {text}
+      </p>
 
-      {/* Delete and Edit icons */}
-      <div className="todo-item-options">
+      {/* Option icons*/}
+      <div className="list-item-options">
+        {/* Edit icon */}
         <img
           src="/edit.svg"
           alt=""
           height={30}
           onClick={() => console.log("Edit message")}
-          className="edit-btn"
+          className="list-item-edit"
         />
+        {/* Delete icon */}
         <img
           src="/trashbin.svg"
           alt=""
           onClick={() => console.log("Delete message")}
           height={30}
-          className="delete-btn"
+          className="list-item-delete"
         />
       </div>
     </li>

@@ -7,10 +7,10 @@ import CreateNewItem from "./components/CreateNewItem";
 import "./fonts.css";
 
 const defaultTodos = [
-  { text: "Buy eggs", completed: true },
-  { text: "Buy bacon", completed: false },
-  { text: "Prepare lunch", completed: false },
-  { text: "Go to the Gym", completed: false },
+  { id: 1, text: "Buy eggs", completed: true },
+  { id: 2, text: "Buy bacon", completed: false },
+  { id: 3, text: "Prepare lunch", completed: false },
+  { id: 4, text: "Go to the Gym", completed: false },
 ];
 
 function App() {
@@ -27,6 +27,20 @@ function App() {
     return todoText.includes(searchText);
   });
 
+  // functions for states
+  const checkTodo = (id) => {
+    console.log(id);
+    // copy all current todo items
+    const newTodos = [...todos];
+    console.log(newTodos);
+    // find the index of the todo with the given id
+    const todoIndex = newTodos.findIndex((todo) => todo.id === id);
+    // toggle the boolean value
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    // update the state of todos
+    setTodos(newTodos);
+  };
+
   return (
     <div className="App">
       <h1 className="title-app">TodoApp</h1>
@@ -39,9 +53,11 @@ function App() {
         {searchedTodos.map((item) => {
           return (
             <TodoItem
-              key={item.text}
+              key={item.id}
               text={item.text}
               completed={item.completed}
+              id={item.id}
+              onComplete={() => checkTodo(item.id)}
             />
           );
         })}
