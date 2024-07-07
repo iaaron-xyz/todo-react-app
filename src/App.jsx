@@ -29,16 +29,23 @@ function App() {
 
   // functions for states
   const checkTodo = (id) => {
-    console.log(id);
     // copy all current todo items
     const newTodos = [...todos];
-    console.log(newTodos);
     // find the index of the todo with the given id
     const todoIndex = newTodos.findIndex((todo) => todo.id === id);
     // toggle the boolean value
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     // update the state of todos
     setTodos(newTodos);
+  };
+
+  const deleteTodo = (id) => {
+    // copy all current todo items
+    const newTodos = [...todos];
+    // remove the todo with the given id
+    const filteredTodos = newTodos.filter((todo) => todo.id !== id);
+    // update the state of todos
+    setTodos(filteredTodos);
   };
 
   return (
@@ -58,6 +65,7 @@ function App() {
               completed={item.completed}
               id={item.id}
               onComplete={() => checkTodo(item.id)}
+              onDelete={() => deleteTodo(item.id)}
             />
           );
         })}

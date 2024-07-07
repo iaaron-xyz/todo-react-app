@@ -1,4 +1,4 @@
-const TodoItem = ({ text, completed, id, onComplete }) => {
+const TodoItem = ({ text, completed, id, onComplete, onDelete }) => {
   let iconCheck = "";
   if (completed) {
     iconCheck = "/circle-check.svg";
@@ -36,7 +36,7 @@ const TodoItem = ({ text, completed, id, onComplete }) => {
         <img
           src="/trashbin.svg"
           alt=""
-          onClick={() => console.log("Delete message")}
+          onClick={onDelete}
           height={30}
           className="list-item-delete"
         />
