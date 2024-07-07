@@ -7,15 +7,25 @@ import CreateNewItem from "./components/CreateNewItem";
 import "./fonts.css";
 
 const defaultTodos = [
-  { id: 1, text: "Buy eggs", completed: true },
-  { id: 2, text: "Buy bacon", completed: false },
-  { id: 3, text: "Prepare lunch", completed: false },
-  { id: 4, text: "Go to the Gym", completed: false },
+  { id: 1, text: "Open TodoApp", completed: true },
+  { id: 3, text: "Create your first Task", completed: false },
+  { id: 4, text: "Search for specific Todos", completed: false },
 ];
+
+// Get the stored todos if exist
+const localStorageTodos = localStorage.getItem("TODOS_LIST");
+
+// Get the current list if exist, otherwise create a default list
+let parsedTodos;
+if (!localStorageTodos) {
+  localStorage.setItem("TODOS_LIST", JSON.stringify(defaultTodos));
+} else {
+  parsedTodos = JSON.parse(localStorageTodos);
+}
 
 function App() {
   // States
-  const [todos, setTodos] = useState(defaultTodos);
+  const [todos, setTodos] = useState(parsedTodos);
   const [searchValue, setSearchValue] = useState("");
 
   // Derived states
@@ -36,16 +46,23 @@ function App() {
     // toggle the boolean value
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     // update the state of todos
-    setTodos(newTodos);
+    updateTodos(newTodos);
   };
 
   const deleteTodo = (id) => {
     // copy all current todo items
-    const newTodos = [...todos];
+    const copyTodos = [...todos];
     // remove the todo with the given id
-    const filteredTodos = newTodos.filter((todo) => todo.id !== id);
+    const newTodos = copyTodos.filter((todo) => todo.id !== id);
     // update the state of todos
-    setTodos(filteredTodos);
+    updateTodos(newTodos);
+  };
+
+  const updateTodos = (updatedTodos) => {
+    // update local storage todo list
+    localStorage.setItem("TODOS_LIST", JSON.stringify(updatedTodos));
+    // update to render todos
+    setTodos(updatedTodos);
   };
 
   return (
