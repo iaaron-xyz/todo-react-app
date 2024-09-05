@@ -12,20 +12,33 @@ const defaultTodos = [
   { id: 4, text: "Search for specific Todos", completed: false },
 ];
 
-// Get the stored todos if exist
-const localStorageTodos = localStorage.getItem("TODOS_LIST");
+function useLocalStorage(itemName, initialValue) {
+  // Get the stored items in case they exist
+  const localStorageItems = localStorage.getItem(itemName);
 
-// Get the current list if exist, otherwise create a default list
-let parsedTodos;
-if (!localStorageTodos) {
-  localStorage.setItem("TODOS_LIST", JSON.stringify(defaultTodos));
-} else {
-  parsedTodos = JSON.parse(localStorageTodos);
+  // Get the current list if exist, otherwise set an initial value
+  let parsedItems;
+  if (!localStorageItems) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+  } else {
+    parsedItems = JSON.parse(localStorageItems);
+  }
+
+  const [items, setItems] = useState(parsedItems);
+
+  const updateItems = (updatedItems) => {
+    // update local storage items
+    localStorage.setItem(itemName, JSON.stringify(updatedItems));
+    // update to render items
+    setItems(updatedItems);
+  };
+
+  return [items, updateItems];
 }
 
 function App() {
   // States
-  const [todos, setTodos] = useState(parsedTodos);
+  const [todos, updateTodos] = useLocalStorage("TODOS_LIST", defaultTodos);
   const [searchValue, setSearchValue] = useState("");
 
   // Derived states
@@ -56,13 +69,6 @@ function App() {
     const newTodos = copyTodos.filter((todo) => todo.id !== id);
     // update the state of todos
     updateTodos(newTodos);
-  };
-
-  const updateTodos = (updatedTodos) => {
-    // update local storage todo list
-    localStorage.setItem("TODOS_LIST", JSON.stringify(updatedTodos));
-    // update to render todos
-    setTodos(updatedTodos);
   };
 
   return (
