@@ -11,7 +11,13 @@ import AppUI from "./AppUI";
 
 function App() {
   // States
-  const [todos, updateTodos] = useLocalStorage("TODOS_LIST", defaultTodos);
+  const {
+    items: todos,
+    updateItems: updateTodos,
+    loadingTodos,
+    errorTodos,
+  } = useLocalStorage("TODOS_LIST", defaultTodos);
+
   const [searchValue, setSearchValue] = useState("");
 
   // Derived states
@@ -46,6 +52,8 @@ function App() {
 
   return (
     <AppUI
+      loadingTodos={loadingTodos}
+      errorTodos={errorTodos}
       totalTodos={totalTodos}
       completedTodos={completedTodos}
       searchedTodos={searchedTodos}

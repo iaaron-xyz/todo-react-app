@@ -1,4 +1,4 @@
-const TodoCounter = ({ total, completed }) => {
+const TodoCounter = ({ total, completed, loadingTodos }) => {
   return (
     <>
       <div className="todo-counter">
@@ -7,7 +7,7 @@ const TodoCounter = ({ total, completed }) => {
           <p>Items completed</p>
         </div>
         <div className="todo-progress">
-          {completed}/{total}
+          {!loadingTodos && `${completed}/${total}`}
         </div>
       </div>
     </>

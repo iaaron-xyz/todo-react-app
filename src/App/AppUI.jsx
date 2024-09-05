@@ -6,6 +6,8 @@ import TodoList from "../components/TodoList";
 import CreateNewItem from "../components/CreateNewItem";
 
 function AppUI({
+  loadingTodos,
+  errorTodos,
   totalTodos,
   completedTodos,
   searchedTodos,
@@ -19,23 +21,32 @@ function AppUI({
       <h1 className="title-app">TodoApp</h1>
 
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-      <TodoCounter completed={completedTodos} total={totalTodos} />
+      <TodoCounter
+        completed={completedTodos}
+        total={totalTodos}
+        loadingTodos={loadingTodos}
+      />
       <CreateNewItem />
 
-      <TodoList>
-        {searchedTodos.map((item) => {
-          return (
-            <TodoItem
-              key={item.id}
-              text={item.text}
-              completed={item.completed}
-              id={item.id}
-              onComplete={() => checkTodo(item.id)}
-              onDelete={() => deleteTodo(item.id)}
-            />
-          );
-        })}
-      </TodoList>
+      {loadingTodos && <p>Loading...</p>}
+      {errorTodos && <p>An error ocurred x_X</p>}
+
+      {!loadingTodos && (
+        <TodoList>
+          {searchedTodos.map((item) => {
+            return (
+              <TodoItem
+                key={item.id}
+                text={item.text}
+                completed={item.completed}
+                id={item.id}
+                onComplete={() => checkTodo(item.id)}
+                onDelete={() => deleteTodo(item.id)}
+              />
+            );
+          })}
+        </TodoList>
+      )}
     </div>
   );
 }
