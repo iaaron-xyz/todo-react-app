@@ -4,6 +4,7 @@ import TodoCounter from "../components/TodoCounter";
 import TodoSearch from "../components/TodoSearch";
 import TodoList from "../components/TodoList";
 import CreateNewItem from "../components/CreateNewItem";
+import TodosLoading from "../components/TodosLoading";
 
 function AppUI({
   loadingTodos,
@@ -28,7 +29,7 @@ function AppUI({
       />
       <CreateNewItem />
 
-      {loadingTodos && <p>Loading...</p>}
+      {loadingTodos && <TodosLoading />}
       {errorTodos && <p>An error ocurred x_X</p>}
 
       {!loadingTodos && (
