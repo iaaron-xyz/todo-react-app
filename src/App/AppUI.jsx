@@ -8,6 +8,7 @@ import CreateNewItem from "../components/CreateNewItem";
 import TodosLoading from "../components/TodosLoading";
 // context
 import { TodoContext } from "../contexts/TodoContext";
+// import Modal from "../components/Modal";
 
 function AppUI() {
   const { loadingTodos, errorTodos, searchedTodos, checkTodo, deleteTodo } =
@@ -40,6 +41,9 @@ function AppUI() {
           })}
         </TodoList>
       )}
+
+      {/* Modal form */}
+      {/* <Modal /> */}
     </div>
   );
 }

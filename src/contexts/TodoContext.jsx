@@ -15,6 +15,7 @@ function TodoProvider({ children }) {
   } = useLocalStorage("TODOS_LIST", defaultTodos);
 
   const [searchValue, setSearchValue] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   // Derived states
   const totalTodos = todos.length;
@@ -57,6 +58,8 @@ function TodoProvider({ children }) {
         setSearchValue,
         checkTodo,
         deleteTodo,
+        showModal,
+        setShowModal,
       }}
     >
       {children}
