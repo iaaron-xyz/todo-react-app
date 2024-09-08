@@ -1,16 +1,14 @@
-import { useContext } from "react";
-import { TodoContext } from "../contexts/TodoContext";
+// import { useContext } from "react";
+// import { TodoContext } from "../contexts/TodoContext";
 
 const BtnCreateTodoItem = () => {
-  const { showModal, setShowModal } = useContext(TodoContext);
-
   return (
     <div className="add-new-item">
       <input type="text" placeholder="Add a new item" />
       <button
         type="button"
-        onClick={() => setShowModal(!showModal)}
         className="add-item-button"
+        onClick={() => console.log("Add task")}
       >
         <span>+</span>
       </button>
