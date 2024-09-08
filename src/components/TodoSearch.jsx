@@ -1,5 +1,9 @@
-const TodoSearch = ({ searchValue, setSearchValue }) => {
-  console.log(`search value: ${searchValue}`);
+import { useContext } from "react";
+import { TodoContext } from "../contexts/TodoContext";
+
+const TodoSearch = () => {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
+
   return (
     <input
       placeholder="Search a Task"

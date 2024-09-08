@@ -1,4 +1,8 @@
-const TodoCounter = ({ total, completed, loadingTodos }) => {
+import { useContext } from "react";
+import { TodoContext } from "../contexts/TodoContext";
+
+const TodoCounter = () => {
+  const { totalTodos, completedTodos, loadingTodos } = useContext(TodoContext);
   return (
     <>
       <div className="todo-counter">
@@ -7,7 +11,7 @@ const TodoCounter = ({ total, completed, loadingTodos }) => {
           <p>Items completed</p>
         </div>
         <div className="todo-progress">
-          {!loadingTodos && `${completed}/${total}`}
+          {!loadingTodos && `${completedTodos}/${totalTodos}`}
         </div>
       </div>
     </>

@@ -4,4 +4,4 @@ const defaultTodos = [
   { id: 4, text: "Search for specific Todos", completed: false },
 ];
 
-export default defaultTodos;
+export { defaultTodos };
