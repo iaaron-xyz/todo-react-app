@@ -45,6 +45,20 @@ function TodoProvider({ children }) {
     // update the state of todos
     updateTodos(newTodos);
   };
+
+  const createNewTodo = (newTodo, setNewTodoText) => {
+    console.log(newTodo);
+    // copy all current todo items and add the new todo
+    const addedTodo = [
+      ...todos,
+      { id: newTodo, text: newTodo, completed: false },
+    ];
+    // add todo to local storage
+    updateTodos(addedTodo);
+    // clear input field
+    setNewTodoText("");
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -57,6 +71,7 @@ function TodoProvider({ children }) {
         setSearchValue,
         checkTodo,
         deleteTodo,
+        createNewTodo,
       }}
     >
       {children}
