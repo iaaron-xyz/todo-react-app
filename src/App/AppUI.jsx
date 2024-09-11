@@ -10,8 +10,14 @@ import TodosLoading from "../components/TodosLoading";
 import { TodoContext } from "../contexts/TodoContext";
 
 function AppUI() {
-  const { loadingTodos, errorTodos, searchedTodos, checkTodo, deleteTodo } =
-    useContext(TodoContext);
+  const {
+    loadingTodos,
+    errorTodos,
+    searchedTodos,
+    checkTodo,
+    deleteTodo,
+    updateTodo,
+  } = useContext(TodoContext);
 
   return (
     <div className="App">
@@ -35,6 +41,7 @@ function AppUI() {
                 id={item.id}
                 onComplete={() => checkTodo(item.id)}
                 onDelete={() => deleteTodo(item.id)}
+                onUpdate={() => updateTodo(item.id)}
               />
             );
           })}

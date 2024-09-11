@@ -14,6 +14,7 @@
   --border-style-accent: rgb(255, 100, 44) 1px solid;
 }
 
+/* GENERAL */
 * {
   box-sizing: border-box;
   /* border: 1px solid red; */
@@ -51,6 +52,7 @@ li {
   margin: 0;
   padding: 0;
 }
+/* TODO LIST */
 
 .title-app {
   font-family: "PoppinsBold";
@@ -66,6 +68,9 @@ li {
 .todo-list {
   margin: 30px 10px 10px 10px;
 }
+
+/* TODO ITEM */
+
 .list-item {
   display: flex;
   align-items: center;
@@ -138,6 +143,30 @@ input::placeholder {
   border: none;
   border-radius: var(--border-radius-circle);
   text-align: center;
+  cursor: pointer;
+}
+
+/* Input Edit */
+.input-todo-edit {
+  border-radius: 0%;
+  border-bottom: var(--border-style-active);
+  font-size: 1.4rem;
+  padding: 10px;
+  margin-left: 10px;
+  /* center the div */
+  /* margin-left: auto; */
+  margin-right: auto;
+  width: 70%;
+}
+.input-todo-edit:focus {
+  outline: none;
+}
+.btn-edit {
+  background: transparent;
+  border: none;
+  margin-left: 5px;
+}
+.btn-edit:hover {
   cursor: pointer;
 }
 

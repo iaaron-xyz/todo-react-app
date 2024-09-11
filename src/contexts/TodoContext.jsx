@@ -59,6 +59,19 @@ function TodoProvider({ children }) {
     setNewTodoText("");
   };
 
+  const editTodo = (id, newText) => {
+    console.log(id, newText);
+    // copy all current todo items
+    const allTodos = [...todos];
+    // find the index of the todo with the given id
+    const todoIndex = allTodos.findIndex((todo) => todo.id === id);
+    // update the text content
+    console.log(allTodos[todoIndex]);
+    allTodos[todoIndex].text = newText;
+    // update the list of todos with the new text
+    updateTodos(allTodos);
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -72,6 +85,7 @@ function TodoProvider({ children }) {
         checkTodo,
         deleteTodo,
         createNewTodo,
+        editTodo,
       }}
     >
       {children}
