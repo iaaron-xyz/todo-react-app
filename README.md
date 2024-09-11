@@ -18,7 +18,7 @@ Edit tasks
 
 Clone the repository and move to the folder project
 ```
-https://github.com/iaaron-xyz/todo-react-app.git
+git clone https://github.com/iaaron-xyz/todo-react-app.git
 cd todo-react-app
 ```
 
