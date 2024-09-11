@@ -1,8 +1,33 @@
-# React + Vite
+# TodoApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About the project
 
-Currently, two official plugins are available:
+In this app you can create your own todos. These todos can be completed/uncompleted, deleted and edited. Contains a searchbar to filter specific todos, and also contains a progress section that shows how many tasks have you completed over the total tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here you can check the [Live Demo.](https://todo-react-app-efk.pages.dev/)
+
+![](./README%20files/captura_todo-react-app.jpeg)
+
+Search functionality
+![](./README%20files/search.jpeg)
+
+Edit tasks
+![](./README%20files/edit.jpeg)
+
+## Run the project locally
+
+Clone the repository and move to the folder project
+```
+https://github.com/iaaron-xyz/todo-react-app.git
+cd todo-react-app
+```
+
+install the dependencies
+```
+npm install
+```
+
+Run the project in development mode
+```
+npm run dev
+```
